@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTMLJORA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ================= TOPBAR ================= -->
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">HJ</div>
+      <div class="brand-text">
+        <h1>HTMLJORA</h1>
+        <p data-i18n="brand.subtitle"></p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btn-new"   class="btn ghost" data-i18n="btn.new"></button>
+      <button id="btn-open"  class="btn ghost" data-i18n="btn.open"></button>
+      <button id="btn-save"  class="btn ghost" data-i18n="btn.save"></button>
+      <button id="btn-help"  class="btn ghost" data-i18n="btn.help"></button>
+      <button id="btn-lang"  class="btn ghost">
+        <span id="lang-flag">🌐</span>
+        <span id="lang-code">EN</span>
+      </button>
+      <button id="btn-run"   class="btn primary" data-i18n="btn.run"></button>
+    </div>
+
+    <input type="file" id="file-input" accept=".hj,.txt,text/plain" hidden>
+  </header>
+
+  <!-- ================= TABS ================= -->
+  <div class="tabs">
+    <button class="tab active" data-tab="code"   data-i18n="tab.code"></button>
+    <button class="tab"        data-tab="blocks" data-i18n="tab.blocks"></button>
+    <div class="tabs-spacer"></div>
+    <span class="status" id="status"></span>
+  </div>
+
+  <!-- ================= WORKSPACE ================= -->
+  <main class="workspace">
+
+    <section class="panel editor-panel" id="panel-code">
+      <div class="panel-head">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span class="filename" id="filename">Project.hj</span>
+        <span class="hint" data-i18n="hint.shortcuts"></span>
+      </div>
+      <div class="editor-wrap">
+        <div class="gutter" id="gutter">1</div>
+        <textarea id="editor" spellcheck="false" wrap="off" autocomplete="off"></textarea>
+      </div>
+    </section>
+
+    <section class="panel blocks-panel hidden" id="panel-blocks">
+      <div class="blocks-toolbar">
+        <span class="blocks-title" data-i18n="blocks.toolbar.title"></span>
+        <button class="btn small" id="btn-blocks-clear" data-i18n="blocks.clear"></button>
+        <button class="btn small primary" id="btn-blocks-to-code" data-i18n="blocks.toCode"></button>
+      </div>
+      <div class="block-canvas" id="block-canvas"></div>
+    </section>
+
+    <section class="panel output-panel">
+      <div class="panel-head">
+        <span class="title" data-i18n="panel.output"></span>
+        <button id="btn-clear" class="mini" data-i18n="panel.clear"></button>
+      </div>
+      <div class="output" id="output"></div>
+    </section>
+
+  </main>
+
+  <!-- ================= CHEATSHEET ================= -->
+  <aside class="cheatsheet" id="cheatsheet" hidden>
+    <div class="cheat-head">
+      <h2 id="cheat-title"></h2>
+      <button id="btn-help-close" class="mini">✕</button>
+    </div>
+    <div class="cheat-body" id="cheat-body"></div>
+  </aside>
+
+  <!-- ================= BLOCK PALETTE ================= -->
+  <div class="palette-modal" id="palette-modal" hidden>
+    <div class="palette-box">
+      <div class="palette-head">
+        <h3 id="palette-title"></h3>
+        <button id="palette-close" class="mini">✕</button>
+      </div>
+      <div class="palette-list" id="palette-list"></div>
+    </div>
+  </div>
+
+  <!-- ================= LANGUAGE PICKER ================= -->
+  <div class="palette-modal" id="lang-modal" hidden>
+    <div class="palette-box lang-box">
+      <div class="palette-head">
+        <h3 id="lang-title"></h3>
+        <button id="lang-close" class="mini">✕</button>
+      </div>
+      <div class="lang-list" id="lang-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
